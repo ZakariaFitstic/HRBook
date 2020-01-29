@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<head>
+    <title>HR Book</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+      <script>
+        $(document).ready(function() {
+          $.ajax({
+            url: "http://localhost:8080/api/candidate",
+            method: "GET",
+            success: function(result) {
+              $('#int').append($('<td id="inte"></td>'));
+              $('#inte').append($('<th></th>').text("Id"));
+              $('#inte').append($('<th></th>').text("Nome"));
+              $('#inte').append($('<th></th>').text("Cognome"));
+              $('#inte').append($('<th></th>').text("Data di nascita"));
+              $('#inte').append($('<th></th>').text("Contatto"));
+              $('#inte').append($('<th></th>').text("Skill"));
+              $('#inte').append($('<th></th>').text("Formazione"));
+              $('#inte').append($('<th></th>').text("Data di scadenza"));
+              $('#inte').append($('<th></th>').text("Data della nota"));
+              $('#inte').append($('<th></th>').text("Nota"));
+              result.forEach(element => {
+                $('#dati').append($('<td id="datin"></td>'));
+                $('#datin').append($('<td></td>').text(element.id));
+                $('#datin').append($('<td></td>').text(element.nome));
+                $('#datin').append($('<td></td>').text(element.cognome));
+                $('#datin').append($('<td></td>').text(element.data_nascita));
+                $('#datin').append($('<td></td>').text(element.contatto));
+                $('#datin').append($('<td></td>').text(element.skill));
+                $('#datin').append($('<td></td>').text(element.formazione));
+                $('#datin').append($('<td></td>').text(element.data_scadenza));
+                $('#datin').append($('<td></td>').text(element.data_nota));
+                $('#datin').append($('<td></td>').text(element.nota));
+                $('#datin').append($('<button id="elimina"></button>').text("Elimina"));
+                $('#datin').append($('<button id="modifica"></button>').text("Modifica"));
+                $('#elimina').click(function() {
+                  alert("elimina");
+                })
+                $('#modifica').click(function() {
+                  $.ajax({
+                    url: "http://localhost:8080/api/candidate",
+                    method: "PUT",
+                    data: {
+                      id: 1,
+                      skill: "Python"
+                    },
+                    success: function() {
+                      alert("Updated!");
+                      $('#int').append($('<td id="inte"></td>'));
+                      $('#inte').append($('<th></th>').text("Id"));
+                      $('#inte').append($('<th></th>').text("Nome"));
+                      $('#inte').append($('<th></th>').text("Cognome"));
+                      $('#inte').append($('<th></th>').text("Data di nascita"));
+                      $('#inte').append($('<th></th>').text("Contatto"));
+                      $('#inte').append($('<th></th>').text("Skill"));
+                      $('#inte').append($('<th></th>').text("Formazione"));
+                      $('#inte').append($('<th></th>').text("Data di scadenza"));
+                      $('#inte').append($('<th></th>').text("Data della nota"));
+                      $('#inte').append($('<th></th>').text("Nota"));
+                      result.forEach(element => {
+                        $('#dati').append($('<td id="datin"></td>'));
+                        $('#datin').append($('<td></td>').text(element.id));
+                        $('#datin').append($('<td></td>').text(element.nome));
+                        $('#datin').append($('<td></td>').text(element.cognome));
+                        $('#datin').append($('<td></td>').text(element.data_nascita));
+                        $('#datin').append($('<td></td>').text(element.contatto));
+                        $('#datin').append($('<td></td>').text(element.skill));
+                        $('#datin').append($('<td></td>').text(element.formazione));
+                        $('#datin').append($('<td></td>').text(element.data_scadenza));
+                        $('#datin').append($('<td></td>').text(element.data_nota));
+                        $('#datin').append($('<td></td>').text(element.nota));
+                        $('#datin').append($('<button id="elimina"></button>').text("Elimina"));
+                        $('#datin').append($('<button id="modifica"></button>').text("Modifica"));
+                      })
+                    },
+                    error: function() {
+                      alert("Failed!");
+                    }
+                  })
+                })
+              });
+            },
+            error: function() {
+              alert("Failed!");
+            }
+          })
+          $('#cerca').click(function(e) {
+            e.preventDefault();
+            alert("Cerca");
+            var ricerca = $('#testo').val();
+            $.ajax({
+              url: "http://localhost:8080/ricerca",
+              method: "POST",
+              data: {
+                ricerca: ricerca
+              },
+              success: function(result) {
+                $('#int').empty();
+                $('#dati').empty();
+                $('#int').append($('<td id="inte"></td>'));
+                $('#inte').append($('<th></th>').text("Id"));
+                $('#inte').append($('<th></th>').text("Nome"));
+                $('#inte').append($('<th></th>').text("Cognome"));
+                $('#inte').append($('<th></th>').text("Data di nascita"));
+                $('#inte').append($('<th></th>').text("Contatto"));
+                $('#inte').append($('<th></th>').text("Skill"));
+                $('#inte').append($('<th></th>').text("Formazione"));
+                $('#inte').append($('<th></th>').text("Data di scadenza"));
+                $('#inte').append($('<th></th>').text("Data della nota"));
+                $('#inte').append($('<th></th>').text("Nota"));
+                result.forEach(element => {
+                  $('#dati').append($('<td id="datin"></td>'));
+                  $('#datin').append($('<td></td>').text(element.id));
+                  $('#datin').append($('<td></td>').text(element.nome));
+                  $('#datin').append($('<td></td>').text(element.cognome));
+                  $('#datin').append($('<td></td>').text(element.data_nascita));
+                  $('#datin').append($('<td></td>').text(element.contatto));
+                  $('#datin').append($('<td></td>').text(element.skill));
+                  $('#datin').append($('<td></td>').text(element.formazione));
+                  $('#datin').append($('<td></td>').text(element.data_scadenza));
+                  $('#datin').append($('<td></td>').text(element.data_nota));
+                  $('#datin').append($('<td></td>').text(element.nota));
+                });
+              },
+              error: function() {
+                alert("Failed");
+              }
+            });
+          })
+          
+        })
+      </script>
+</head>
+<body>
+    <h1 style="text-align: center;">Benvenuto nel front-end di HR Book di AGM Solution</h1>
+    <br>
+    <input type="text" id="testo" placeholder="">
+    <button id="cerca">Cerca</button>
+    <br><br>
+    <button><a href="http://localhost:8080/aggiungicandidato">Agguingi candidato</a></button>
+    <br>
+    <table id="result" class="table">
+        <thead id="int">
+          
+        </thead>
+        <tbody id="dati">
+          
+        </tbody>
+      </table>
+
+</body>    
+</html>

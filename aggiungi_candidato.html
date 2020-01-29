@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<head>
+    <title>HR Book</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+    <script src="http://localhost:8080/scriptCandidato"></script>
+</head>
+<body>
+    <form>
+        <div class="form-row">
+          <div class="col-md-4 mb-3">
+            <label for="validationServer01">Nome</label>
+            <input type="text" class="form-control is-valid" id="nome" placeholder="First name" value="Mark" required>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="validationServer02">Cognome</label>
+            <input type="text" class="form-control is-valid" id="cognome" placeholder="Last name" value="Otto" required>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="validationServerUsername">Data di nascita</label>
+            <div class="input-group">
+              <input type="text" class="form-control is-invalid" id="data_nascita" placeholder="Data di nascita" aria-describedby="inputGroupPrepend3" required>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-md-3 mb-3">
+            <label for="validationServer03">Contatto</label>
+            <input type="text" class="form-control is-invalid" id="contatto" placeholder="Contatto" required>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="validationServer04">Skill</label>
+            <input type="text" class="form-control is-invalid" id="skill" placeholder="Skill" required>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="validationServer05">Formazione</label>
+            <input type="text" class="form-control is-invalid" id="formazione" placeholder="Formazione" required>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="validationServer05">Data di scadenza</label>
+            <input type="text" class="form-control is-invalid" id="data_scadenza" placeholder="Data di scadenza" required>
+          </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-3 mb-3">
+                <label for="validationServer05">Nota</label>
+                <input type="text" class="form-control is-invalid" id="nota" placeholder="Nota" required>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="validationServer05">Data nota</label>
+                <input type="text" class="form-control is-invalid" id="data_nota" placeholder="Data nota" required>
+              </div>        
+        </div>
+        <button id="Add">Aggiungi candidato</button>
+      </form>
+      <br>
+
+</body>    
+</html>
